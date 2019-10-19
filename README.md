@@ -6,7 +6,8 @@
 <img
 		width="250"
 		alt="Nobo - React.JS & Material UI"
-		src="https://github.com/Regisnut/nobo/blob/master/assets/nobo.png">
+		src="https://github.com/Regisnut/nobo/blob/master/src/assets/nobo.png">
+
 </h1>
 
 ## Overview
@@ -25,7 +26,7 @@ This project was inspired by nobo website **[www.nobo.com](https://www.nobo.com)
 <img
 		width="210"
 		alt="Capture 1"
-		src="https://github.com/Regisnut/nobo/blob/master/assets/Capture1.png">
+		src="https://github.com/Regisnut/nobo/blob/master/src/assets/Capture1.png">
 
 </p>
 
