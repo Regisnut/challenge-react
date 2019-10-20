@@ -55,10 +55,10 @@ class Filter extends Component {
               <Textfield
                 style={{
                   borderRadius: 4,
-                  width: 200,
+                  width: 300,
                   marginRight: 15,
                   height: 30,
-                  fontSize: 25
+                  fontSize: 28
                 }}
                 id="title"
                 name="title"

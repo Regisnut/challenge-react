@@ -8,6 +8,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 /*
 List les items (utilisé sur la route "/")
 */
@@ -18,7 +19,7 @@ class OffersPage extends React.Component {
   };
 
   // Fait une requete axios pour récuperer la liste des items
-/*
+  /*
   getOffers = async () => {
     const response = await axios.get(
       "https://api.tvmaze.com/search/shows?q=test"
@@ -41,13 +42,16 @@ class OffersPage extends React.Component {
     return (
       // on render un MainLayout pour avoir le header et footer
       <MainLayout>
-      <Filter updateAdsList={this.updateAdsList} />
+        <Filter updateAdsList={this.updateAdsList} />
         {/* Si offersData est null on affiche un loader */}
         {this.state.offersData === null ? (
-          <p>Make your selection...</p>
+          <Box>
+            <Typography variant="body1" color="textPrimary">
+              Make your selection...
+            </Typography>
+          </Box>
         ) : (
           <div className="offer-filter-page">
-            
             {this.state.offersData.map(offer => {
               const picture =
                 offer.show.image && offer.show.image.medium
