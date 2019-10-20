@@ -18,6 +18,7 @@ class OffersPage extends React.Component {
   };
 
   // Fait une requete axios pour récuperer la liste des items
+/*
   getOffers = async () => {
     const response = await axios.get(
       "https://api.tvmaze.com/search/shows?q=test"
@@ -25,12 +26,11 @@ class OffersPage extends React.Component {
     // on met à jour le state
     this.setState({ offersData: response.data });
   };
-
   componentDidMount = () => {
     // à l'initialisation du composant on fetch les items
     this.getOffers();
   };
-
+*/
   updateAdsList = offers => {
     this.setState({
       offersData: offers
@@ -41,12 +41,13 @@ class OffersPage extends React.Component {
     return (
       // on render un MainLayout pour avoir le header et footer
       <MainLayout>
+      <Filter updateAdsList={this.updateAdsList} />
         {/* Si offersData est null on affiche un loader */}
         {this.state.offersData === null ? (
-          <p>Loading...</p>
+          <p>Make your selection...</p>
         ) : (
           <div className="offer-filter-page">
-            <Filter updateAdsList={this.updateAdsList} />
+            
             {this.state.offersData.map(offer => {
               const picture =
                 offer.show.image && offer.show.image.medium
