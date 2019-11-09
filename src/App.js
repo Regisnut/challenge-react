@@ -5,7 +5,7 @@ import NotFoundPage from "./NotFoundPage";
 import SingleOfferPage from "./SingleOfferPage";
 
 /*
-Tous le routing est fait dans App pour simplifié la struture de l'application
+Tous le routing est fait dans App pour simplifier la struture de l'application
 */
 class App extends React.Component {
   render = () => {

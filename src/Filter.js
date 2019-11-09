@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Textfield from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 
-//API TVMAZE pour le Filter
-const apiTvmaze = "https://api.tvmaze.com/search/shows";
+//API pour le Filter
+const api = "http://localhost:3001/cars.json";
 
 class Filter extends Component {
   state = {
-    title: ""
+    duration: "",
+    distance: ""
   };
 
   handleChange = event => {
@@ -19,15 +18,18 @@ class Filter extends Component {
       },
       () => {
         axios
-
-          .get(apiTvmaze, {
+          .get(api, {
             params: {
-              q: this.state.title
+              duration: this.state.duration,
+              distance: this.state.distance
             }
           })
 
           .then(response => {
             this.props.updateAdsList(response.data);
+            //on met à  jour le state des offres ds le composant OffersPage
+            this.props.updateDuration(this.state.duration);
+            this.props.updateDistance(this.state.distance);
           });
       }
     );
@@ -36,9 +38,10 @@ class Filter extends Component {
   handleSubmit = event => {
     event.preventDefault();
     axios
-      .get(apiTvmaze, {
+      .get(api, {
         params: {
-          q: this.state.title
+          duration: this.state.duration,
+          distance: this.state.distance
         }
       })
       .then(response => {
@@ -49,32 +52,32 @@ class Filter extends Component {
   render() {
     return (
       <div className="offers-filter-background">
-        <div className="offers-filter-container container">
+        <div className="offers-filter-container">
           <form onSubmit={this.handleSubmit}>
             <div className="search-container">
-              <Textfield
-                style={{
-                  borderRadius: 4,
-                  width: 300,
-                  marginRight: 15,
-                  height: 30,
-                  fontSize: 28
-                }}
-                id="title"
-                name="title"
-                placeholder="Que recherchez-vous ?"
+              <label>durée (j)</label>
+              <input
+                className="input-search duration"
+                id="duration"
+                type="number"
+                name="duration"
+                placeholder="durée ?"
                 onChange={this.handleChange}
-                value={this.state.title}
+                value={this.state.duration}
               />
-              <Button
-                size="small"
-                variant="outlined"
-                color="disabled"
-                className="button-search"
-                type="submit"
-              >
+              <label>distance (km)</label>
+              <input
+                className="input-search distance"
+                id="distance"
+                type="number"
+                name="distance"
+                placeholder="distance ?"
+                onChange={this.handleChange}
+                value={this.state.distance}
+              />
+              <button className="button-search" type="submit">
                 Rechercher
-              </Button>
+              </button>
             </div>
           </form>
         </div>
