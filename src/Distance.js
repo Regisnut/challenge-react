@@ -5,7 +5,7 @@ export default class Distance extends Component {
     return (
       <div className="color--purple">
         Total EUR avec distance choisie :
-        {this.props.distance * this.props.pricePerKm} (price)
+        {this.props.distance * (this.props.pricePerKm / 100)} (€)
       </div>
     );
   }

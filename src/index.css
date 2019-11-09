@@ -58,19 +58,6 @@ li {
   margin-right: 15px;
   font-weight: bold;
 }
-.login {
-  height: 100%;
-}
-.login > div {
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  border-left: solid #fafafa 1px;
-  box-sizing: border-box;
-}
-.login > div:nth-child(2) {
-  border-right: solid #fafafa 1px;
-}
 
 .content {
   margin: 20px;

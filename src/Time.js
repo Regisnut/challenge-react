@@ -5,7 +5,7 @@ export default class Time extends Component {
     return (
       <div className="color--purple">
         Total EUR avec temps choisi :
-        {this.props.pricePerDay * this.props.duration} (price)
+        {(this.props.pricePerDay / 100) * this.props.duration} (€)
       </div>
     );
   }
